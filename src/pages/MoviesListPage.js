@@ -1,11 +1,12 @@
 import React from "react";
 import Popular from "../components/Home/Popular-Movies";
-
+import Header from "../components/Header/Header";
 function MoviesListPage() {
   return (
-    <div>
+    <>
+      <Header />
       <Popular />
-    </div>
+    </>
   );
 }
 

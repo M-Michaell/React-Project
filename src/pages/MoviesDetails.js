@@ -1,10 +1,12 @@
 import React from "react";
-import MoviesDetails from "./MoviesDetails";
+import MoviesDetails from "../components/Movie-Details/Movie-Details";
 
 function MoviesDetailPage() {
+  const movieId = 15;
   return (
+    
     <div>
-      <MoviesDetails />
+      <MoviesDetails movieId={movieId} /> 
     </div>
   );
 }
