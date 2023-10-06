@@ -15,11 +15,14 @@ export default function Navbar() {
             <div className="navbar-nav mr-auto">
               {" "}
               {/* Replace ul with div */}
-              <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item dropdown">
+              <div
+                className="collapse navbar-collapse"
+                id="navbarNavDarkDropdown"
+              >
+                <ul className="navbar-nav">
+                  <li className="nav-item dropdown">
                     <a
-                      class="nav-link dropdown-toggle"
+                      className="nav-link dropdown-toggle"
                       href="#"
                       role="button"
                       data-bs-toggle="dropdown"
@@ -27,19 +30,19 @@ export default function Navbar() {
                     >
                       En
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark show">
+                    <ul className="dropdown-menu dropdown-menu-dark show">
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="#">
                           En
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="#">
                           Ar
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a className="dropdown-item" href="#">
                           Fr
                         </a>
                       </li>
@@ -50,10 +53,10 @@ export default function Navbar() {
             </div>
           </div>
           <div className="">
-          <span className="mx-2 fs-4">
-            <FontAwesomeIcon icon={faHeart}  />
-          </span>
-          <span className="mr-4">watchlist</span>
+            <span className="mx-2 fs-4">
+              <FontAwesomeIcon icon={faHeart} />
+            </span>
+            <span className="mr-4">watchlist</span>
           </div>
         </div>
       </div>
