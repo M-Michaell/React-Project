@@ -1,0 +1,8 @@
+.form-control::placeholder {
+    color: rgb(183, 182, 182); /* Change this to your desired grey color */
+  }
+  
+  
+.btn-responsive{
+    width:100%
+}
