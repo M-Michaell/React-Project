@@ -1,12 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-
+import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-warning">
       <div className="container-fluid">
-        <h1 className="navbar-brand my-auto ms-5">Movie App</h1>
+      <Link to = "/" style={{textDecoration:"none"}}>  <h1 className="navbar-brand my-auto ms-5">Movie App</h1></Link>
         <div className="d-flex align-items-center px-5">
           <div
             className="collapse navbar-collapse content-end mx-1"
