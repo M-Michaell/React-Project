@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { axiosInstance } from "./config";
 
 export function useSearchData(MovieName) {
-  const [searchData, setsearchData] = useState();
+  const [searchData, setsearchData] = useState([]);
 
   useEffect(() => {
     axiosInstance
