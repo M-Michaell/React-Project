@@ -14,9 +14,12 @@ function Router() {
     <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<MoviesListPage />} />
-        <Route path="/movie-details" element={<MoviesDetails />} />
+        <Route path="/movie-details/:id" element={<MoviesDetails />} />
         <Route path="/watch-list" element={<MoviesWatchList />} />
-        <Route path="/search-result" element={<MoviesSearchResults />} />
+        <Route
+          path="/search-result/:movieName"
+          element={<MoviesSearchResults />}
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

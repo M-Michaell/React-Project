@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { useSearchData } from "../../apis/Search";
-import MoviesSearchResultPage from "../../pages/MoviesSearchResults";
+
+import "./Search.css";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
-  const searchData = useSearchData(searchTerm);
+
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -15,12 +14,12 @@ export default function Search() {
 
   const handleSearchClick = () => {
     // Use navigate to programmatically navigate to the search results page
-    navigate(`/search-result?query=${searchTerm}`);
+
+    navigate(`/search-result/${searchTerm}`);
   };
 
-
   return (
-    <div className="container-fluid my-5">
+    <div className="container-fluid">
       <div className="row">
         <div className="col-12 col-md-10 mr-md-3">
           <input
@@ -33,6 +32,7 @@ export default function Search() {
             onChange={handleSearchChange}
           />
         </div>
+
         <div className="col-12 col-md-2 mt-3 mt-md-0">
           <button
             type="button"
@@ -44,9 +44,6 @@ export default function Search() {
           </button>
         </div>
       </div>
-      <Link to="/movie-details">
-      <button className="btn" >Movie details</button>
-      </Link>
     </div>
   );
 }

@@ -14,7 +14,6 @@ function MoviesDetails({ movieId }) {
 
   return (
     <div>
-      <Navbar/>
       {/* Conditional rendering based on whether movieDetails is available */}
       {movieDetails ? (
         <div>
