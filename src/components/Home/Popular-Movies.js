@@ -13,7 +13,7 @@ function Popular() {
     <>
       <h2 className="mb-5 ms-4 ">Popular Movies</h2>
       <div>
-        <div className="row row-cols-1 row-cols-md-3 row-cols-xl-5 ms-4 me-4">
+        <div className="row row-cols-1 row-cols-md-3 row-cols-xl-6 ms-4 me-4">
           {popularData.map((item) => (
             <div className="col" key={item.id}>
               <Card item={item} />
