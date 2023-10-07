@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "./Header.css";
 import Search from "../Search/Search";
-import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 export default function Header() {
   // const language = useSelector((state) => state.language.current_lang)

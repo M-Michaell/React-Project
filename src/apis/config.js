@@ -39,13 +39,3 @@ axiosInstance.interceptors.response.use(
   }
 );
 
-// Now, you can use axiosInstance for making requests with the interceptors applied
-
-// axiosInstance
-//   .get("/authentication")
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.error(error);
-//   });

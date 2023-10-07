@@ -8,14 +8,13 @@ function MoviesSearchResultPage() {
   return (
     <div>
       <div>
-        <div className="my-5 p-4"><Search />
+        <div className="my-5 p-4">
+          <Search />
         </div>
-        <SearchResults />
       </div>
+      <SearchResults />
     </div>
   );
 }
 
 export default MoviesSearchResultPage;
-
-
