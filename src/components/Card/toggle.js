@@ -17,6 +17,7 @@ function Toggle(props) {
     dispatch(toggleWatchList(item));
   };
 
+  // console.log(watchList)
   return (
     <>
       <>

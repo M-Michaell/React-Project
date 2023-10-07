@@ -1,65 +1,64 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-export default function Navbar() {
+import "./navbar.css";
+import Badge from "@mui/material/Badge";
+import Language from "../Language&Theme/language";
+
+export default function Navbar2() {
+  const watchList = useSelector((state) => state.WatchList.watchListItems);
+  const navigate = useNavigate();
+
+  const handlernavigate = () => {
+    navigate("/watch-list");
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-warning">
-      <div className="container-fluid">
-      <Link to = "/" style={{textDecoration:"none"}}>  <h1 className="navbar-brand my-auto ms-5">Movie App</h1></Link>
-        <div className="d-flex align-items-center px-5">
-          <div
-            className="collapse navbar-collapse content-end mx-1"
-            id="navbarSupportedContent"
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      className="navbar-light bg-warning fs-4 container-fluid sticky-top"
+    >
+      <NavLink className="nav-link fs-3  ms-5" to="/">
+        Movie App
+      </NavLink>
+
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav" className="me-3">
+        <Nav className="me-auto"></Nav>
+        <Nav className="">
+          <Language />
+        </Nav>
+        <Nav>
+          {/* <IconButton aria-label={notificationsLabel(watchList.length)}> */}
+          <button
+            type="button"
+            className="btn btn-warning position-relative me-4"
+            onClick={handlernavigate}
           >
-            <div className="navbar-nav mr-auto">
-              {" "}
-              {/* Replace ul with div */}
-              <div
-                className="collapse navbar-collapse"
-                id="navbarNavDarkDropdown"
-              >
-                <ul className="navbar-nav">
-                  <li className="nav-item dropdown">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      En
-                    </a>
-                    <ul className="dropdown-menu dropdown-menu-dark show">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          En
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Ar
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Fr
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+            <Badge
+              badgeContent={watchList.length}
+              color="error"
+              className="ms-2"
+              max={10}
+            >
+              <div className="d-flex justify-content-start align-items-center">
+                <span className="mx-2 fs-4 ">
+                  <FontAwesomeIcon icon={faHeart} />
+                </span>
+
+                <span className="">watchlist</span>
               </div>
-            </div>
-          </div>
-          <div className="">
-            <span className="mx-2 fs-4">
-              <FontAwesomeIcon icon={faHeart} />
-            </span>
-            <span className="mr-4">watchlist</span>
-          </div>
-        </div>
-      </div>
-    </nav>
+            </Badge>
+          </button>
+          {/* </IconButton> */}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }

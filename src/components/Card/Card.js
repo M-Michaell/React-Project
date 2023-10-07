@@ -9,6 +9,7 @@ function Card(props) {
   const navigate = useNavigate();
   const handlernavigate = (id) => {
     navigate(`/movie-details/${item.id}`);
+    console.log(item);
   };
   return (
     <>
@@ -16,7 +17,7 @@ function Card(props) {
         <div>
           <span
             className="position-absolute"
-            style={{ top: "3%", left: "85%", cursor: "pointer" }}
+            style={{ top: "3%", left: "80%", cursor: "pointer" }}
             onClick={handlernavigate}
           >
             <Stack>
@@ -27,7 +28,7 @@ function Card(props) {
           </span>
           <img
             src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
-            className="card-img-top img-thumbnail rounded-4 "
+            className="card-img-top img-thumbnail rounded-4"
             alt="..."
           />
         </div>
