@@ -1,33 +1,58 @@
+
+
 import React from "react";
+
 import { useParams } from "react-router-dom";
+
 import { useDetailsData } from "../../apis/details";
+
 import Rating from "@mui/material/Rating";
+
 import StarIcon from "@mui/icons-material/Star";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import Toggle from "../Card/toggle";
 
 function MoviesDetails() {
+
   const { id } = useParams();
+
   const detailsData = useDetailsData(id);
+
   console.log(detailsData);
+
   if (!detailsData) {
+
     return <div>Loading...</div>;
+
   }
+
+ 
 
   const posterPath = detailsData.poster_path;
 
+ 
+
   return (
+
     <div className="mt-5">
+
       <div className="row">
         <div className="col-lg-5 col-md-6">
           <div className="card  rounded-5">
+
             <img
+
               className="img-fluid rounded-5 shadow-lg "
+
               src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
               alt="Card cap"
             />
+
           </div>
+
         </div>
         <div className="col-lg-7 col-md-6 d-flex">
           <div className="card border-0 ">
@@ -116,11 +141,21 @@ function MoviesDetails() {
                 </button>
               </div>
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     </div>
+
   );
+
 }
 
+ 
+
 export default MoviesDetails;
+
+ 

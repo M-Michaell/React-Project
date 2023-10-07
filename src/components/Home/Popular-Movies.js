@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { usePopularData } from "../../apis/popular";
 import Card from "../Card/Card";
 import PaginationControlled from "../Pagination/Pagination";
+import { useSelector } from "react-redux";
 function Popular() {
-  const [page, setPage] =useState(1);
+  const language = useSelector((state) => state.language.current_lang);
+
+  const [page, setPage] = useState(1);
   const { popularData, isLoading } = usePopularData(page);
   const handleChange = (event, value) => {
     setPage(value);
@@ -15,7 +18,14 @@ function Popular() {
   // Render the popular movies list here
   return (
     <>
-      <h2 className="mb-5 ms-4 ">Popular Movies</h2>
+      <h2 className="mb-5 ms-4 me-4">
+        {language === "ar-SA" ? (
+          <span>أفلام شهيرة</span>
+        ) : (
+          <span>Popular Movies</span>
+        )}
+      </h2>
+
       <div>
         <div className="row row-cols-1 row-cols-md-3 row-cols-xl-6 ms-4 me-4">
           {popularData.results.map((item) => (
