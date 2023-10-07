@@ -12,9 +12,9 @@ function SearchResults() {
 
   return (
     <>
-      <h2 className="mb-5 ms-4 ">Popular Movies</h2>
+      <span className="mb-5 ms-5 fs-4 "><strong>Search Results for:</strong>{movieName}</span>
       <div>
-        <div className="row row-cols-1 row-cols-md-3 row-cols-xl-5 ms-4 me-4">
+        <div className="row row-cols-1 row-cols-md-3 row-cols-xl-6 me-4 mt-5 mx-4">
           {searchData.map((item) => (
             <div className="col" key={item.id}>
               <Card item={item} />
