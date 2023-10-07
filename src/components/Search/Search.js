@@ -2,10 +2,13 @@ import React, { useState } from "react";
 
 import "./Search.css";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Search() {
+  const language = useSelector((state) => state.language.current_lang);
+
   const [searchTerm, setSearchTerm] = useState("");
-  const [warning, setWarning] = useState("")
+  const [warning, setWarning] = useState("");
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -14,13 +17,17 @@ export default function Search() {
 
   const handleSearchClick = () => {
     // Use navigate to programmatically navigate to the search results page
-    if (searchTerm.trim() === ""){
-      setWarning("Please enter a search input")
+    if (searchTerm.trim() === "") {
+      setWarning(
+        language === "ar-SA"
+          ? "الرجاء إدخال مصطلح بحث"
+          : "Please enter a search input"
+      );
     } else {
-      setWarning("")
-      navigate(`/search-result/${searchTerm}`);}
-    
-  };
+      setWarning("");
+      navigate(`/search-result/${searchTerm}`);
+    }
+  }    
 
   return (
     <div className="container-fluid">
@@ -34,7 +41,6 @@ export default function Search() {
             aria-describedby="search-addon"
             style={{ height: "50px" }}
             onChange={handleSearchChange}
-  
           />
         </div>
 
@@ -45,7 +51,11 @@ export default function Search() {
             style={{ borderRadius: "10px", height: "50px" }}
             onClick={handleSearchClick}
           >
-            <span className="w-100">Search</span>
+            {language === "ar-SA" ? (
+              <span className="w-100">بحث</span>
+            ) : (
+              <span className="w-100">Search</span>
+            )}
           </button>
         </div>
         {warning && <div className="text-danger mt-2 ms-2">{warning}</div>}

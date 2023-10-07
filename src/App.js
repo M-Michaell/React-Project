@@ -5,23 +5,21 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import { BrowserRouter } from "react-router-dom";
 import Router from "./Router/router";
 import Navbar from "./components/Navbar/Navbar";
-import { LanguageContext } from "./Context/language";
-
+import { useSelector } from "react-redux";
 function App() {
-  const [contextLang, setContextLang] = useState('en'); // Define contextLang and setContextLang
+  const language = useSelector((state) => state.language.current_lang);
 
   return (
     <>
       <BrowserRouter>
-        <LanguageContext.Provider value={{ contextLang, setContextLang }}>
-          <div
-            className={contextLang === "ar-SA" ? "text-right" : "text-left"}
-            dir={contextLang === "ar-SA" ? "rtl" : "ltr"}> 
-              
-            <Navbar />
-            <Router />
-          </div>
-        </LanguageContext.Provider>
+      <Navbar />
+        <div
+          className={language === "ar-SA" ? "text-right" : "text-left"}
+          dir={language === "ar-SA" ? "rtl" : "ltr"}
+        >
+
+          <Router />
+        </div>
       </BrowserRouter>
     </>
   );
