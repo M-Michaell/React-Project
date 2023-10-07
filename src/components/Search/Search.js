@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [warning, setWarning] = useState("")
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -14,8 +14,12 @@ export default function Search() {
 
   const handleSearchClick = () => {
     // Use navigate to programmatically navigate to the search results page
-
-    navigate(`/search-result/${searchTerm}`);
+    if (searchTerm.trim() === ""){
+      setWarning("Please enter a search input")
+    } else {
+      setWarning("")
+      navigate(`/search-result/${searchTerm}`);}
+    
   };
 
   return (
@@ -30,6 +34,7 @@ export default function Search() {
             aria-describedby="search-addon"
             style={{ height: "50px" }}
             onChange={handleSearchChange}
+  
           />
         </div>
 
@@ -43,6 +48,7 @@ export default function Search() {
             <span className="w-100">Search</span>
           </button>
         </div>
+        {warning && <div className="text-danger mt-2 ms-2">{warning}</div>}
       </div>
     </div>
   );

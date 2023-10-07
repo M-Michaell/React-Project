@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
-    current_lang : "en",
-    available_lang : ["en", "ar"]
+    current_lang : "en-US",
+    available_lang : ["en-US", "ar-SA"]
 }
 
 const languageSlice = createSlice({
