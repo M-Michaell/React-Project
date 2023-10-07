@@ -21,6 +21,5 @@ export function useRecommendation(id, page) {
       .catch((err) => console.log(err));
   }, [id, page, language]);
 
-  console.log(language);
   return { Recommendation, isLoading };
 }

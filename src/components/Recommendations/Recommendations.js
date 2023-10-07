@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useRecommendation } from "../../apis/recommendations";
 import Card from "../Card/Card";
 import PaginationControlled from "../Pagination/Pagination";
+import Loader from "../Loader/Loader";
 
 function Recommendations(props) {
   const { id } = props;
@@ -11,10 +12,8 @@ function Recommendations(props) {
   const handleChange = (event, value) => {
     setPage(value);
   };
-  console.log(DataRec);
-  console.log(id);
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
