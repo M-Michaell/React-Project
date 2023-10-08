@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/109.6478b667.chunk.css","mappings":"AAAA,yCACI,aACF,CAFF,2BACI,aACF,CAGF,gBACI,UACJ","sources":["components/Search/Search.css"],"sourcesContent":[".form-control::placeholder {\n    color: rgb(183, 182, 182); /* Change this to your desired grey color */\n  }\n  \n  \n.btn-responsive{\n    width:100%\n}"],"names":[],"sourceRoot":""}
