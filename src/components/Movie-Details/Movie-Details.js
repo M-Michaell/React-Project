@@ -1,17 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useDetailsData } from "../../apis/details";
-import Rating from "@mui/material/Rating";
-import StarIcon from "@mui/icons-material/Star";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import Toggle from "../Card/toggle";
 import Loader from "../Loader/Loader";
+import Rating2 from "../Rating/Rating";
 
 function MoviesDetails() {
   const { id } = useParams();
   const { detailsData, isLoading } = useDetailsData(id);
-  console.log(detailsData);
 
   if (isLoading) {
     return <Loader />;
@@ -43,16 +41,7 @@ function MoviesDetails() {
                   {detailsData.release_date}
                 </small>
                 <div className="d-flex align-items-center">
-                  <Rating
-                    style={{ color: "black" }}
-                    name="text-feedback"
-                    value={detailsData.vote_average / 2}
-                    readOnly
-                    precision={0.2}
-                    emptyIcon={
-                      <StarIcon style={{ opacity: 0.5 }} fontSize="inherit" />
-                    }
-                  />
+                  <Rating2 item={detailsData} />
                   <p className="mt-3 mx-4 fs-5">{detailsData.vote_count}</p>
                 </div>
                 <p className="text-wrap fs-5">{detailsData.overview}</p>
@@ -92,11 +81,15 @@ function MoviesDetails() {
                   </small>
                 </div>
                 <div className="my-3">
-                  <div className="d-flex align-items-center">
+                  <p className="fs-5 fw-bold">companies: </p>
+                  <div className="d-flex align-items-center flex-wrap justify-content-evenly">
                     {detailsData.production_companies.map(
                       (company) =>
                         company.logo_path !== null && (
-                          <div key={company.id} className="me-3">
+                          <div
+                            key={company.id}
+                            className="me-3 mb-3 border shadow"
+                          >
                             <img
                               src={`https://image.tmdb.org/t/p/w92/${company.logo_path}`}
                               alt={company.name}
