@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import "./Search.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -12,9 +11,7 @@ export default function Search() {
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
-
   const navigate = useNavigate();
-
   const handleSearchClick = () => {
     // Use navigate to programmatically navigate to the search results page
     if (searchTerm.trim() === "") {
@@ -27,7 +24,7 @@ export default function Search() {
       setWarning("");
       navigate(`/search-result/${searchTerm}`);
     }
-  }    
+  };
 
   return (
     <div className="container-fluid">
@@ -36,7 +33,9 @@ export default function Search() {
           <input
             type="search"
             className="form-control rounded border"
-            placeholder="Search and explore..."
+            placeholder={
+              language === "ar-SA" ? "ابحث واستكشف..." : "Search and explore..."
+            }
             aria-label="Search"
             aria-describedby="search-addon"
             style={{ height: "50px" }}

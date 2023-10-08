@@ -3,17 +3,18 @@ import { usePopularData } from "../../apis/popular";
 import Card from "../Card/Card";
 import PaginationControlled from "../Pagination/Pagination";
 import { useSelector } from "react-redux";
+import Loader from "../Loader/Loader";
 function Popular() {
   const language = useSelector((state) => state.language.current_lang);
 
   const [page, setPage] = useState(1);
   const { popularData, isLoading } = usePopularData(page);
-  const handleChange = (event, value) => {
+  const handleChange = (value) => {
     setPage(value);
   };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
   // Render the popular movies list here
   return (

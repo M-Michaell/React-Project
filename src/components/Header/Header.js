@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
 import "./Header.css";
 import Search from "../Search/Search";
-import axios from "axios";
 import { useSelector } from "react-redux";
 export default function Header() {
   const language = useSelector((state) => state.language.current_lang);

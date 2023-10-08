@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { useSearchData } from "../apis/Search"; // Import your API function
-import Navbar from "../components/Navbar/Navbar";
+import React from "react";
 import Search from "../components/Search/Search";
 import SearchResults from "../components/Search/SearchResults";
 function MoviesSearchResultPage() {

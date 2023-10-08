@@ -1,60 +1,36 @@
-
-
 import React from "react";
-
 import { useParams } from "react-router-dom";
-
 import { useDetailsData } from "../../apis/details";
-
 import Rating from "@mui/material/Rating";
-
 import StarIcon from "@mui/icons-material/Star";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import Toggle from "../Card/toggle";
+import Loader from "../Loader/Loader";
 
 function MoviesDetails() {
-
   const { id } = useParams();
-
-  const detailsData = useDetailsData(id);
-
+  const { detailsData, isLoading } = useDetailsData(id);
   console.log(detailsData);
 
-  if (!detailsData) {
-
-    return <div>Loading...</div>;
-
+  if (isLoading) {
+    return <Loader />;
   }
 
- 
-
   const posterPath = detailsData.poster_path;
-
- 
-
   return (
-
     <div className="mt-5">
-
       <div className="row">
-        <div className="col-lg-5 col-md-6">
+        <div className="col-lg-5 col-md-6 col-xl-4 col-xxl-4">
           <div className="card  rounded-5">
-
             <img
-
               className="img-fluid rounded-5 shadow-lg "
-
               src={`https://image.tmdb.org/t/p/w500/${posterPath}`}
               alt="Card cap"
             />
-
           </div>
-
         </div>
-        <div className="col-lg-7 col-md-6 d-flex">
+        <div className="col-lg-7 col-md-6 col-xl-8 col-xxl-8 d-flex">
           <div className="card border-0 ">
             <div className="card-body text-start d-flex justify-content-evenly flex-column align-items-start ">
               <div>
@@ -141,21 +117,11 @@ function MoviesDetails() {
                 </button>
               </div>
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
-
   );
-
 }
 
- 
-
 export default MoviesDetails;
-
- 
