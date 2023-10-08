@@ -13,7 +13,9 @@ function Card(props) {
   return (
     <>
       <div className="card border-0 mb-4 animation shadow">
-          <div className="rounded-5 shadow">
+
+        <div className="rounded-5 shadow">
+
           <span
             className="position-absolute"
             style={{ top: "3%", left: "80%", cursor: "pointer" }}
