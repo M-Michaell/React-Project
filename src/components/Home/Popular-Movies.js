@@ -9,7 +9,7 @@ function Popular() {
 
   const [page, setPage] = useState(1);
   const { popularData, isLoading } = usePopularData(page);
-  const handleChange = (value) => {
+  const handleChange = (event, value) => {
     setPage(value);
   };
 
@@ -28,12 +28,14 @@ function Popular() {
       </h2>
 
       <div>
-        <div className="row row-cols-1 row-cols-md-3 row-cols-xl-6 ms-4 me-4">
-          {popularData.results.map((item) => (
-            <div className="col" key={item.id}>
-              <Card item={item} />
-            </div>
-          ))}
+        <div className="row row-cols-1 row-cols-md-3 row-cols-xl-6 ms-4 me-4 justify-content-center">
+          {popularData.results.map((item) =>
+            item.poster_path ? (
+              <div className="col" key={item.id}>
+                <Card item={item} />
+              </div>
+            ) : null
+          )}
         </div>
       </div>
       <div className="d-flex my-5 justify-content-center">

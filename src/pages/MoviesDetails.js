@@ -6,11 +6,10 @@ import { useParams } from "react-router-dom";
 function MoviesDetailPage() {
   const param = useParams();
   const id = param.id;
-  console.log(id);
   return (
     <div className="mx-auto" style={{ width: "85%" }}>
-    <div>
-      <MoviesDetails />
+      <div>
+        <MoviesDetails />
       </div>
       <div className="row">
         <div className="col">

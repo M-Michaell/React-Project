@@ -4,7 +4,6 @@ import WatchCard from "./watchCard";
 
 function WatchList() {
   const watchList = useSelector((state) => state.WatchList.watchListItems);
-  console.log(watchList);
 
   return (
     <>

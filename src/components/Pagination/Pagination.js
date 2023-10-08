@@ -6,17 +6,17 @@ export default function PaginationControlled(props) {
   const { handleChange, page, counter } = props;
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={1}>
       <Pagination
         showFirstButton
         count={counter}
         page={page}
-        siblingCount={0}
+        siblingCount={1}
         onChange={handleChange}
-        // variant="outlined"
-        // color="warning"
-        shape="rounded"
-        size="large"
+        variant="outlined"
+        color="warning"
+        // shape="rounded"
+        boundaryCount={0}
       />
     </Stack>
   );

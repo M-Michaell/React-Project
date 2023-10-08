@@ -9,11 +9,10 @@ function Card(props) {
   const navigate = useNavigate();
   const handlernavigate = (id) => {
     navigate(`/movie-details/${item.id}`);
-    console.log(item);
   };
   return (
     <>
-      <div className="card border-0 mb-4">
+      <div className="card border-0 mb-4 animation shadow">
         <div>
           <span
             className="position-absolute"

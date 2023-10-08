@@ -38,3 +38,22 @@
     }
 
 }
+.animation:hover {
+    /* Scale the element on hover */
+    animation: animate .5s ease-in-out;
+    animation-fill-mode: forwards;
+
+  }
+  
+  /* Define a keyframes animation named 'animate' */
+  @keyframes animate {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
